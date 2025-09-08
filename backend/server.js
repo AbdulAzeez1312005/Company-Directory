@@ -17,6 +17,10 @@ app.use(cors({
   origin: "https://company-directory-lz0cyjr7b-acefaisal13-gmailcoms-projects.vercel.app",
   credentials: true,
 }));
+app.get("/", (req, res) => {
+  res.send("✅ API is running...");
+});
+
 
 // Routes
 app.use("/api/companies", companyRoutes);
