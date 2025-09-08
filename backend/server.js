@@ -14,7 +14,7 @@ app.use(express.json());
 
 // 🔹 CORS setup for deployed frontend
 app.use(cors({
-  origin: "https://company-directory-qmtkpi3tk-acefaisal13-gmailcoms-projects.vercel.app",
+  origin: "https://company-directory-lz0cyjr7b-acefaisal13-gmailcoms-projects.vercel.app/",
   credentials: true,
 }));
 
