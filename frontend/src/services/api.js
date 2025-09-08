@@ -1,11 +1,17 @@
 import axios from "axios";
 
-// Use environment variable for backend URL
+// Get API base URL from .env
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+
+// Debug log (optional, remove in production)
+console.log("🌍 API Base URL:", API_BASE_URL);
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
-  withCredentials: false,
+  withCredentials: true, // set true if you want cookies/session
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 // AUTH
