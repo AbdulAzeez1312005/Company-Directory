@@ -1,22 +1,13 @@
-// src/services/api.js
-import axios from "axios";
+// AUTH
+export const signup = (userData) => api.post("/api/auth/signup", userData);
+export const login = (userData) => api.post("/api/auth/login", userData);
 
-// Create axios instance
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL, // now uses deployed backend
-  timeout: 10000,
-});
-
-// ========== AUTH ==========
-export const signup = (userData) => api.post("/auth/signup", userData);
-export const login = (userData) => api.post("/auth/login", userData);
-
-// ========== COMPANIES ==========
+// COMPANIES
 export const fetchCompanies = (params = {}) =>
-  api.get("/companies", { params });
-export const createCompany = (payload) => api.post("/companies", payload);
+  api.get("/api/companies", { params });
+export const createCompany = (payload) =>
+  api.post("/api/companies", payload);
 
-// ========== CONTACT (optional) ==========
-export const sendContactMessage = (payload) => api.post("/contact", payload);
-
-export default api;
+// CONTACT
+export const sendContactMessage = (payload) =>
+  api.post("/api/contact", payload);
