@@ -11,7 +11,12 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+
+// 🔹 CORS setup for deployed frontend
+app.use(cors({
+  origin: "https://company-directory-qmtkpi3tk-acefaisal13-gmailcoms-projects.vercel.app",
+  credentials: true,
+}));
 
 // Routes
 app.use("/api/companies", companyRoutes);
