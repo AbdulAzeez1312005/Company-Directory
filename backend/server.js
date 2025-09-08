@@ -18,6 +18,7 @@ app.use(cors({
   credentials: true,
 }));
 
+
 // Root route
 app.get("/", (req, res) => {
   res.send("✅ API is running...");
