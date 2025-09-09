@@ -8,20 +8,21 @@ export default function Contact() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm((f) => ({ ...f, [name]: value }));
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.post(
-        import.meta.env.VITE_API_BASE_URL + "/contact",
+        import.meta.env.VITE_API_BASE_URL + "/api/contact", // ✅ fixed endpoint
         form
       );
       setSent(true);
+      setError("");
       setForm({ name: "", email: "", message: "" });
     } catch (err) {
-      console.error("Error sending message:", err.message);
+      console.error("Error sending message:", err.response?.data || err.message);
       setError("Failed to send message. Please try again.");
     }
   };
